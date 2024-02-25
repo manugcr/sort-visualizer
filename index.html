@@ -21,12 +21,16 @@
                     <label for="sort-algorithm">Algorithm: </label>
                     <select class="select" id="sort-algorithm">
                         <option value="bubble-sort">Bubble Sort</option>
+                        <option value="selection-sort">Selection Sort</option>
+                        <option value="insertion-sort">Insertion Sort</option>
                         <!-- Add more sorting algorithms here -->
                     </select>
                 </div>
 
-                <button class="button" onclick="startVisualization()">Start</button>
-                <button class="button" onclick="resetArray()">Reset</button>
+                <div class="button-container">
+                    <button class="button" onclick="startVisualization()">Start</button>
+                    <button class="button" onclick="resetArray()">Reset</button>
+                </div>
             </div>
 
             <div class="graph-box">

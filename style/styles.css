@@ -1,6 +1,5 @@
 :root {
     --dark-color: #343a40;
-    --dark-secondary-color: #5C8374;
     --light-secondary-color: #5C8374; 
     --light-color: #343a40; 
     --highlight-color: #63e6be; 
@@ -85,16 +84,21 @@ label {
 }
 
 /* Style for the button */
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
 .button {
-    background-color: var(--dark-secondary-color);
+    background-color: var(--light-secondary-color);
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 1rem 2rem;
+    margin: 1rem;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
-    margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px; /* Rounded corners */
     transition: background-color 0.3s; /* Smooth transition */

@@ -1,6 +1,7 @@
 let isSorting = false; // Flag to track whether sorting is in progress
-const COLOR_COMPARISON = "#63e6be"; // Yellow for comparison
+const COLOR_COMPARISON = "#63e6be";
 const COLOR_SWAP = "#ff9999"; // Light red for swapped elements
+const AWAIT_SLEEP = 10; // Delay in milliseconds for visualization
 
 // Initialize visualization with array of size.
 window.onload = function() {
@@ -44,10 +45,17 @@ async function startVisualization() {
         case "bubble-sort":
             await bubbleSort(array);
             break;
+        case "selection-sort":
+            await selectionSort(array);
+            break;
+        case "insertion-sort":
+            await insertionSort(array);
+            break;
         // Add cases for other sorting algorithms here
         default:
             alert("Invalid sorting algorithm selection");
     }
+    
     isSorting = false; // Reset sorting flag after sorting is complete
 }
 
@@ -73,7 +81,7 @@ async function bubbleSort(array) {
             const bar2 = document.querySelectorAll(".bar")[j + 1];
             bar1.style.backgroundColor = COLOR_COMPARISON; // Yellow
             bar2.style.backgroundColor = COLOR_COMPARISON; // Yellow
-            await sleep(10); // Adjust delay as needed
+            await sleep(AWAIT_SLEEP); // Adjust delay as needed
 
             if (array[j] > array[j + 1]) {
                 swap(array, j, j + 1);
@@ -92,4 +100,65 @@ async function bubbleSort(array) {
         bar.style.backgroundColor = COLOR_COMPARISON; // Default blue color
     });
 }
+
+// Selection Sort algorithm with visualization
+async function selectionSort(array) {
+    let len = array.length;
+    for (let i = 0; i < len - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < len; j++) {
+            if (!isSorting) return; // Check if reset button is clicked
+            const bar1 = document.querySelectorAll(".bar")[j];
+            const bar2 = document.querySelectorAll(".bar")[minIndex];
+            bar1.style.backgroundColor = COLOR_COMPARISON;
+            bar2.style.backgroundColor = COLOR_COMPARISON;
+            await sleep(AWAIT_SLEEP);
+            if (array[j] < array[minIndex]) {
+                minIndex = j;
+            }
+            bar1.style.backgroundColor = COLOR_SWAP;
+            bar2.style.backgroundColor = COLOR_SWAP;
+        }
+        if (minIndex !== i) {
+            swap(array, i, minIndex);
+            updateVisualization(array);
+            await sleep(10);
+        }
+    }
+    // Reset colors of all bars at the end of sorting
+    const bars = document.querySelectorAll(".bar");
+    bars.forEach(bar => {
+        bar.style.backgroundColor = COLOR_COMPARISON; // Default blue color
+    });
+}
+
+// Insertion Sort algorithm with visualization
+async function insertionSort(array) {
+    const len = array.length;
+    for (let i = 1; i < len; i++) {
+        let currentValue = array[i];
+        let j = i - 1;
+        while (j >= 0 && array[j] > currentValue) {
+            if (!isSorting) return; // Check if reset button is clicked
+            const bar1 = document.querySelectorAll(".bar")[j];
+            const bar2 = document.querySelectorAll(".bar")[j + 1];
+            bar1.style.backgroundColor = COLOR_COMPARISON;
+            bar2.style.backgroundColor = COLOR_COMPARISON;
+            array[j + 1] = array[j];
+            bar1.style.backgroundColor = COLOR_SWAP;
+            bar2.style.backgroundColor = COLOR_SWAP;
+            await sleep(AWAIT_SLEEP);
+            j--;
+        }
+        array[j + 1] = currentValue;
+        updateVisualization(array); // Update visualization after insertion
+    }
+
+    // Reset colors of all bars at the end of sorting
+    const bars = document.querySelectorAll(".bar");
+    bars.forEach(bar => {
+        bar.style.backgroundColor = COLOR_COMPARISON;
+    });
+}
+
 
