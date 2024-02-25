@@ -1,0 +1,126 @@
+:root {
+    --dark-color: #343a40;
+    --dark-secondary-color: #5C8374;
+    --light-secondary-color: #5C8374; 
+    --light-color: #343a40; 
+    --highlight-color: #63e6be; 
+    
+    --font-family: "Play", Sans-Serif;
+    --font-color: #d3f9d8;
+    --white-color: #fff;
+    --black-color: #000;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--dark-color);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+label {
+    font-size: 20px;
+    margin: 0;
+}
+
+/* Grid config */
+.container {
+    color: var(--font-color);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 4rem;
+    gap: 1rem;
+}
+
+.config-box {
+    background-color: var(--light-color);
+    border: 1px solid var(--light-color);
+    box-shadow: 0 0 5px 0 var(--black-color);
+    
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+    
+    text-align: left;
+    padding: 1rem;
+}
+
+.graph-box {
+    background-color: var(--light-color);
+    border: 1px solid var(--light-color);
+    box-shadow: 0 0 5px 0 var(--black-color);
+    
+    grid-row: 1 / 4;
+    grid-column: 2 / 5;
+    
+    text-align: left;
+    padding: 1rem;
+}
+
+/* Bar config */
+.bar {
+    display: inline-block;
+    margin-right: 2px; /* Spacing between bars */
+    background-color: var(--highlight-color); /* Color of the bars */
+    flex: 1; /* Let bars expand to fill available space */
+}
+
+.bar-container {
+    display: inline-block;
+    vertical-align: bottom;
+    height: 80%; /* Maximum height of the bars */
+}
+
+#array-container {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Distribute bars evenly */
+    align-items: flex-end; /* Align bars to the bottom */
+    padding: 1rem;
+    margin-top: 10%;
+}
+
+/* Style for the button */
+.button {
+    background-color: var(--dark-secondary-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+  
+.button:hover {
+    background-color: var(--light-secondary-color); /* Darker green */
+}
+
+/* Style for the selectors */
+.select {
+    background-color: var(--dark-secondary-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.select:hover {
+    border-color: #aaa; /* Darker border color on hover */
+}

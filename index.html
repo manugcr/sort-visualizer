@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sorting Algorithm Visualizer</title>
+        <link rel="stylesheet" href="style/styles.css">
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="config-box">
+
+                <h2>Controls</h2>
+                <div>
+                    <label for="array-size">Size: </label>
+                    <input type="range" id="array-size" value="20" min="5" max="100" oninput="resetArray()">
+                </div>
+                <div>
+                    <label for="sort-algorithm">Algorithm: </label>
+                    <select class="select" id="sort-algorithm">
+                        <option value="bubble-sort">Bubble Sort</option>
+                        <!-- Add more sorting algorithms here -->
+                    </select>
+                </div>
+
+                <button class="button" onclick="startVisualization()">Start</button>
+                <button class="button" onclick="resetArray()">Reset</button>
+            </div>
+
+            <div class="graph-box">
+                <h2>Visualization</h2>
+                <div id="array-container" class="graph"></div>
+            </div>
+
+        </div>
+
+        <script src="js/script.js"></script>
+
+    </body>
+</html>
