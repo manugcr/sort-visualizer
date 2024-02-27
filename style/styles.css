@@ -158,15 +158,13 @@ label {
 
 
 
-
-
 /* Style for the selectors */
 .select {
-    background-color: var(--dark-secondary-color);
+    background-color: var(--dark-color);
     border: none;
-    color: white;
+    color: var(--font-color);
     padding: 15px 32px;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
     display: inline-block;
     font-size: 14px;
@@ -180,6 +178,8 @@ label {
 
 .select:hover {
     border-color: var(--secondary-color);
+    background: var(--dark-color);
+    color: var(--font-color);
 }
 
 
