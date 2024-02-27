@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +12,12 @@
     <body>
 
         <div class="container">
-            <div class="config-box">
 
+            <div class="config-box">
                 <h2>Controls</h2>
                 <div>
                     <label for="array-size">Size: </label>
-                    <input type="range" id="array-size" value="20" min="5" max="100" oninput="resetArray()">
+                    <input type="range" class="slider" id="array-size" value="50" min="5" max="100" oninput="resetArray()">
                 </div>
                 <div>
                     <label for="sort-algorithm">Algorithm: </label>
@@ -28,8 +30,8 @@
                 </div>
 
                 <div class="button-container">
-                    <button class="button" onclick="startVisualization()">Start</button>
-                    <button class="button" onclick="resetArray()">Reset</button>
+                    <button class="button" id="start-button" onclick="startVisualization()">Start</button>
+                    <button class="button" id="reset-button" onclick="resetArray()">Reset</button>
                 </div>
             </div>
 
@@ -43,4 +45,5 @@
         <script src="js/script.js"></script>
 
     </body>
+
 </html>
